@@ -1,6 +1,8 @@
 const axios = require("axios");
 require('dotenv').config()
 
+var centricToken = ''
+
 //GENERATE CENTRIC TOKEN
 const generateCentricToken = async () => {
   var data = JSON.stringify({
@@ -31,9 +33,47 @@ const generateCentricToken = async () => {
   return response;
 };
 
+// SEND REQUEST TO CENTRIC
+// FUNCTION EXPECTS THE ENDPOINT PASSED AS A STRING.  EX: "skus" or "category_1s"
+const sendCentricRequest = async (endpoint) => {
+  var offput = 0;
+  var finalQuery = false;
+  var response = [];
+
+  console.log(`Querying Centrics ${endpoint} Endpoint`);
+
+  while (!finalQuery) {
+    await axios({
+      method: "get",
+      url: `https://bgzbrands-smb.centric-cloud.com:443/csi-requesthandler/api/v2/${endpoint}?limit=1000&skip=${offput}`,
+      headers: {
+        token:
+          "SecurityTokenURL=centric://_CS_SecurityToken/e20d5f06-7a6f-4016-8a12-148f0f66d1f3",
+        Cookie: centricToken,
+      },
+    })
+      .then((centricResponse) => {
+        centricResponse.data.forEach((item) => {
+          response.push(item);
+        });
+
+        if (centricResponse.data.length < 1000) {
+          finalQuery = true;
+        } else {
+          offput = offput + centricResponse.data.length;
+        }
+      })
+      .catch((error) => {
+        finalQuery = true;
+        console.log(error.response);
+      });
+  }
+
+  return response;
+};
+
 const handler = async (event, context) => {
-  var centricToken = await generateCentricToken()
-  
+  centricToken = await generateCentricToken()
 }
 
 handler()
