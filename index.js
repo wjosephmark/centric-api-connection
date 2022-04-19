@@ -33,6 +33,7 @@ const generateCentricToken = async () => {
 
 const handler = async (event, context) => {
   var centricToken = await generateCentricToken()
+  
 }
 
 handler()
