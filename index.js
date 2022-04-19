@@ -45,10 +45,10 @@ const sendCentricRequest = async (endpoint) => {
   while (!finalQuery) {
     await axios({
       method: "get",
-      url: `https://bgzbrands-smb.centric-cloud.com:443/csi-requesthandler/api/v2/${endpoint}?limit=1000&skip=${offput}`,
+      url: `${process.env.CENTRIC_BASE_URL}:${process.env.CENTRIC_PORT}/csi-requesthandler/api/v2/${endpoint}?limit=1000&skip=${offput}`,
       headers: {
         token:
-          "SecurityTokenURL=centric://_CS_SecurityToken/e20d5f06-7a6f-4016-8a12-148f0f66d1f3",
+          centricToken,
         Cookie: centricToken,
       },
     })
