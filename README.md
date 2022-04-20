@@ -8,7 +8,7 @@ A link to the basic documentation (exstensive documentation must be obtained thr
 * This function generates the access token that is needed to performing CRUD operations.
 * It does not expect any arguments to be passed.
 * It returns the token as a string.
-* The needed credentials are: A Centric username, password
+* The needed credentials are: a Centric username, password
   * Store in environment variables called 'CENTRIC_USERNAME' and 'CENTRIC_PASSWORD'
 * The needed headers are: Content-Type, Accept, Cookie (obtained from Centric)
   * Store cookie in environment variable called 'CENTRIC_COOKIE'
