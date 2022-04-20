@@ -75,7 +75,6 @@ const sendCentricRequest = async (endpoint) => {
 module.exports.handler = async (event, context) => {
   centricToken = await generateCentricToken();
 
-  console.log(centricToken);
   var endpoint = "styles";
 
   var dataObject = await sendCentricRequest(endpoint);
