@@ -49,7 +49,7 @@ const sendCentricRequest = async (endpoint) => {
       headers: {
         token:
           centricToken,
-        Cookie: centricToken,
+        Cookie: process.env.CENTRIC_COOKIE,
       },
     })
       .then((centricResponse) => {
