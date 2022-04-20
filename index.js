@@ -34,7 +34,6 @@ const generateCentricToken = async () => {
 };
 
 // SEND REQUEST TO CENTRIC
-// FUNCTION EXPECTS THE ENDPOINT PASSED AS A STRING.  EX: "skus" or "category_1s"
 const sendCentricRequest = async (endpoint) => {
   var offput = 0;
   var finalQuery = false;
