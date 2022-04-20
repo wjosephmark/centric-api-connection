@@ -2,6 +2,8 @@
 
 A generic connection to Centric's C8 REST API written in Node.  THIS EXAMPLE ONLY DISPLAYS READ FUNCTIONALITY.
 
+The connection is configured to be deployed as an AWS Lambda function.
+
 A link to the basic documentation (exstensive documentation must be obtained through Centric): https://usermanual.wiki/Document/C820REST20API20Developer20Guide.1477580063.pdf
 
 ## generateCentricToken
@@ -20,3 +22,7 @@ A link to the basic documentation (exstensive documentation must be obtained thr
 * It expects the desired endpoint passed as a string. ex: 'skus' or 'category1s'
 * It returns an object containing the response's data.
 * The needed headers are token (the token obtained in the generateCentricToken function) and cookie (the same used in the generateCentricToken, obtained from centric)
+
+## handler
+* This function manages the order in which other functions are called.
+* The endpoint variable is expected to be a string and is passed to the sendCentricRequest function.
