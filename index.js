@@ -18,9 +18,9 @@ const generateCentricToken = async () => {
       Accept: "application/json",
       Cookie: process.env.CENTRIC_COOKIE,
     },
-    data: data
+    data: data,
   };
-  
+
   var response = await axios(config)
     .then((centricResponse) => {
       return centricResponse.data;
@@ -47,7 +47,7 @@ const sendCentricRequest = async (endpoint) => {
       token: centricToken,
       Cookie: process.env.CENTRIC_COOKIE,
     },
-  }
+  };
 
   console.log(options);
   while (!finalQuery) {
@@ -72,15 +72,13 @@ const sendCentricRequest = async (endpoint) => {
   return response;
 };
 
-const handler = async (event, context) => {
+module.exports.handler = async (event, context) => {
   centricToken = await generateCentricToken();
 
   console.log(centricToken);
-  var endpoint = 'styles'
+  var endpoint = "styles";
 
-  var dataObject = await sendCentricRequest(endpoint)
+  var dataObject = await sendCentricRequest(endpoint);
 
   console.log(dataObject);
 };
-
-handler();
