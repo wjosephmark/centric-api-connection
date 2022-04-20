@@ -30,7 +30,7 @@ const generateCentricToken = async () => {
       console.log(error);
     });
 
-  return response;
+  return response.token;
 };
 
 // SEND REQUEST TO CENTRIC
@@ -73,7 +73,8 @@ const sendCentricRequest = async (endpoint) => {
 };
 
 const handler = async (event, context) => {
-  centricToken = await generateCentricToken()
+  var centricToken = await generateCentricToken()
+
 }
 
 handler()
