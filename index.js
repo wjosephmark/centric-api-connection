@@ -1,7 +1,7 @@
 const axios = require("axios");
-require('dotenv').config()
+require("dotenv").config();
 
-var centricToken = ''
+var centricToken = "";
 
 //GENERATE CENTRIC TOKEN
 const generateCentricToken = async () => {
@@ -46,8 +46,7 @@ const sendCentricRequest = async (endpoint) => {
       method: "get",
       url: `${process.env.CENTRIC_BASE_URL}:${process.env.CENTRIC_PORT}/csi-requesthandler/api/v2/${endpoint}?limit=1000&skip=${offput}`,
       headers: {
-        token:
-          centricToken,
+        token: centricToken,
         Cookie: process.env.CENTRIC_COOKIE,
       },
     })
@@ -72,8 +71,7 @@ const sendCentricRequest = async (endpoint) => {
 };
 
 const handler = async (event, context) => {
-  var centricToken = await generateCentricToken()
+  var centricToken = await generateCentricToken();
+};
 
-}
-
-handler()
+handler();
