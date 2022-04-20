@@ -2,8 +2,6 @@
 
 A generic connection to Centric's C8 REST API written in Node.  THIS EXAMPLE ONLY DISPLAYS READ FUNCTIONALITY.
 
-The connection is configured to be deployed as an AWS Lambda function.
-
 A link to the basic documentation (exstensive documentation must be obtained through Centric): https://usermanual.wiki/Document/C820REST20API20Developer20Guide.1477580063.pdf
 
 ## generateCentricToken
