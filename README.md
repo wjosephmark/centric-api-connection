@@ -1,4 +1,4 @@
-# centric-api-connection-node
+# centric-api-connection
 
 A generic connection to Centric's C8 REST API written in Node.  THIS EXAMPLE ONLY DISPLAYS READ FUNCTIONALITY.
 
