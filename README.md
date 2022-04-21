@@ -5,7 +5,7 @@ A generic connection to Centric's C8 REST API written in Node.  THIS EXAMPLE ONL
 A link to the basic documentation (exstensive documentation must be obtained through Centric): https://usermanual.wiki/Document/C820REST20API20Developer20Guide.1477580063.pdf
 
 ## generateCentricToken
-* This function generates the access token that is needed to performing CRUD operations.
+* This function generates the access token that is needed to perform CRUD operations.
 * It does not expect any arguments to be passed.
 * It returns the token as a string.
 * The needed credentials are: a Centric username, password
